@@ -2,7 +2,7 @@ angular.module('thunder.controllers', ['ionic', 'thunder.services'])
 /*
 Controller for the discover page
 */
-.controller('DiscoverCtrl', function($scope, $timeout) {
+.controller('DiscoverCtrl', function($scope, $timeout, User) {
   $scope.products = [
     {
       "name": "LinkedIn ProFinder",
@@ -40,6 +40,7 @@ Controller for the discover page
   //fires when we favorite or skip a product
 
   $scope.sendFeedback = function(bool) {
+    if (bool) User.addProductToFavorites($scope.currentProduct);
     $scope.currentProduct.rated = bool;
     $scope.currentProduct.hide = true;
     //timeout to allow animation to complete before changing to the next card
@@ -55,7 +56,13 @@ Controller for the discover page
 /*
 Controller for the favorites page
 */
-.controller('FavoritesCtrl', function($scope) {})
+.controller('FavoritesCtrl', function($scope, User) {
+  $scope.favorites = User.favorites;
+
+  $scope.removeProduct = function(product, index) {
+    User.removeProductFromFavorites(product, index);
+  }
+})
 
 /*
 Controller for our tabs
