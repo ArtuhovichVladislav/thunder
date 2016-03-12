@@ -60,7 +60,12 @@ angular.module('thunder', ['ionic', 'thunder.controllers', 'thunder.services'])
       }
     })
 
+      .state('splash', {
+        url: '/',
+        templateUrl: 'templates/splash.html',
+        controller: 'SplashCtrl'
+      })
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/discover');
+  $urlRouterProvider.otherwise('/');
 
 });
