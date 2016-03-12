@@ -14,6 +14,18 @@
   font-weight: bold;
   font-size: 42px;
 }
+
+.splash-page .signup-opt {
+  color: #fff;
+  padding: 15px;
+  margin-top: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.splash-page .action-button {
+  font-weight: bolder;
+}
 /* Discover page stylings */
 .discover-page .current-product {
   -webkit-transform: scale(1);
